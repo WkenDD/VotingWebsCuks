@@ -1,0 +1,166 @@
+/* ===================================================
+   FESTIVAL HC 2026 - CUSTOM DESIGN SYSTEM
+   Authentic, Youthful, High-Energy Pensi/Festival Style
+=================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cabinet+Grotesk:wght@700;800;900&display=swap');
+
+:root {
+  --fest-navy-dark: #0A1128;
+  --fest-navy-card: #131E3D;
+  --fest-blue: #2563EB;
+  --fest-blue-light: #3B82F6;
+  --fest-accent-yellow: #F59E0B;
+  --fest-accent-orange: #F97316;
+  --fest-accent-cyan: #06B6D4;
+  --fest-accent-pink: #EC4899;
+  --fest-bg: #F8FAFC;
+  --fest-card-border: #E2E8F0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: #F1F5F9;
+  color: #0F172A;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.04) 0%, transparent 40%);
+}
+
+.fest-heading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+/* Ticket Stub Effect */
+.ticket-stub {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+  border: 1px solid #E2E8F0;
+  overflow: hidden;
+}
+
+.ticket-header {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  color: #FFFFFF;
+  position: relative;
+}
+
+.ticket-header::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: radial-gradient(circle, transparent, transparent 50%, #FFFFFF 50%, #FFFFFF 100%);
+  background-size: 16px 8px;
+}
+
+/* Performance Vote Cards */
+.fest-card {
+  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  background: #FFFFFF;
+  border: 2px solid #E2E8F0;
+  border-radius: 16px;
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+}
+
+.fest-card:hover:not(.disabled) {
+  border-color: #2563EB;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px -6px rgba(37, 99, 235, 0.15);
+}
+
+.fest-card.selected {
+  border-color: #2563EB;
+  background: linear-gradient(180deg, #FFFFFF 0%, #EFF6FF 100%);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2), 0 12px 24px -6px rgba(37, 99, 235, 0.18);
+  transform: translateY(-2px);
+}
+
+.fest-card.selected .card-check-badge {
+  background-color: #2563EB;
+  color: #FFFFFF;
+  border-color: #2563EB;
+  transform: scale(1.05);
+}
+
+.fest-card.disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+  background-color: #F8FAFC;
+  border-color: #E2E8F0;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Badge Stamps */
+.stamp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Custom Floating Control Dock */
+.control-dock {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.4);
+}
+
+/* Micro Animations */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+}
+
+.pulse-target {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+/* Custom Checkbox */
+.custom-checkbox {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #CBD5E1;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.15s ease-in-out;
+  display: grid;
+  place-content: center;
+}
+
+.custom-checkbox::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em white;
+  transform-origin: center;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.custom-checkbox:checked {
+  background-color: #2563EB;
+  border-color: #2563EB;
+}
+
+.custom-checkbox:checked::before {
+  transform: scale(1);
+}
